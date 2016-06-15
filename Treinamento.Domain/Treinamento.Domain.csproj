@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{4DD6F4A2-8205-45FF-8DB7-4AC8958D3388}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Treinamento.Domain</RootNamespace>
+    <AssemblyName>Treinamento.Domain</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Classes\Negocio\AlunoNegocio.cs" />
+    <Compile Include="Classes\Negocio\Base\CrudNegocio.cs" />
+    <Compile Include="Classes\Negocio\Base\VisualizacaoNegocio.cs" />
+    <Compile Include="Classes\Negocio\CursoNegocio.cs" />
+    <Compile Include="Classes\Repositorio\AlunoRepository.cs" />
+    <Compile Include="Classes\Repositorio\CursoRepository.cs" />
+    <Compile Include="Contexto\TreinamentoContexto.cs" />
+    <Compile Include="Dtos\AlunoDto.cs" />
+    <Compile Include="Dtos\ComboDto.cs" />
+    <Compile Include="Dtos\CursoDto.cs" />
+    <Compile Include="Entidades\Aluno.cs" />
+    <Compile Include="Entidades\ContaReceber.cs" />
+    <Compile Include="Entidades\Convenio.cs" />
+    <Compile Include="Entidades\Curso.cs" />
+    <Compile Include="Entidades\DebitoVencido.cs" />
+    <Compile Include="Entidades\Matricula.cs" />
+    <Compile Include="Entidades\Turma.cs" />
+    <Compile Include="Interfaces\Negocio\Base\ICrudNegocio.cs" />
+    <Compile Include="Interfaces\Negocio\Base\IVisualizacaoNegocio.cs" />
+    <Compile Include="Interfaces\Negocio\IAlunoNegocio.cs" />
+    <Compile Include="Interfaces\Negocio\ICursoNegocio.cs" />
+    <Compile Include="Interfaces\Repositorio\Base\ICrudRepository.cs" />
+    <Compile Include="Interfaces\Repositorio\Base\IUnityOfWork.cs" />
+    <Compile Include="Interfaces\Repositorio\Base\IVisualizacaoRepository.cs" />
+    <Compile Include="Interfaces\Repositorio\IAlunoRepository.cs" />
+    <Compile Include="Interfaces\Repositorio\ICursoRepository.cs" />
+    <Compile Include="Mapping\AlunoMap.cs" />
+    <Compile Include="Mapping\ContaReceberMap.cs" />
+    <Compile Include="Mapping\ConvenioMap.cs" />
+    <Compile Include="Mapping\CursoMap.cs" />
+    <Compile Include="Mapping\DebitoVencidoMap.cs" />
+    <Compile Include="Mapping\MatriculaMap.cs" />
+    <Compile Include="Mapping\TurmaMap.cs" />
+    <Compile Include="Migrations\201606091741071_PrimeiroMigration.cs" />
+    <Compile Include="Migrations\201606091741071_PrimeiroMigration.Designer.cs">
+      <DependentUpon>201606091741071_PrimeiroMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201606091750149_InclusaoSexoBiru.cs" />
+    <Compile Include="Migrations\201606091750149_InclusaoSexoBiru.Designer.cs">
+      <DependentUpon>201606091750149_InclusaoSexoBiru.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201606091741071_PrimeiroMigration.resx">
+      <DependentUpon>201606091741071_PrimeiroMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201606091750149_InclusaoSexoBiru.resx">
+      <DependentUpon>201606091750149_InclusaoSexoBiru.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
