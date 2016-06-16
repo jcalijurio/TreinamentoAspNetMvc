@@ -7,6 +7,7 @@ using Treinamento.Domain.Excecoes;
 
 namespace Treinamento.Web.Controllers
 {
+    [ClaimAuthorize("Admin")]
     public class AlunoController : Controller
     {
         private IAlunoNegocio _negocio;

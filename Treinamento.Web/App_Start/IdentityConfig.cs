@@ -11,6 +11,7 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security;
 using Treinamento.Web.Models;
+using System.Net.Mail;
 
 namespace Treinamento.Web
 {
@@ -18,8 +19,16 @@ namespace Treinamento.Web
     {
         public Task SendAsync(IdentityMessage message)
         {
-            // Plug in your email service here to send an email.
-            return Task.FromResult(0);
+            var sendGridMessage = new SendGrid.SendGridMessage
+            {
+                From = new MailAddress("contato@treinamentomvc.com.br"),
+                Subject = message.Subject,
+                Html = message.Body,
+                To = new MailAddress[] { new MailAddress(message.Destination) }
+            };
+
+            var transport = new SendGrid.Web("Jy_-0U1uSOi169RZgdaMyw", new System.Net.NetworkCredential("azure_b0938b3c9ae6abbb79e23713d2cb833a@azure.com", "55sFrtTrEfB2LYq"), TimeSpan.FromSeconds(100));
+            return transport.DeliverAsync(sendGridMessage);
         }
     }
 
@@ -82,7 +91,7 @@ namespace Treinamento.Web
             if (dataProtectionProvider != null)
             {
                 manager.UserTokenProvider = 
-                    new DataProtectorTokenProvider<ApplicationUser>(dataProtectionProvider.Create("ASP.NET Identity"));
+                    new DataProtectorTokenProvider<ApplicationUser>(dataProtectionProvider.Create("SenhadoBiru"));
             }
             return manager;
         }

@@ -20,5 +20,12 @@ namespace Treinamento.Web
 
             return claims.Claims.Any(c => c.Type == _claim);
         }
+
+        public override void OnAuthorization(AuthorizationContext filterContext)
+        {
+            if (!AuthorizeCore(filterContext.HttpContext))
+                filterContext.HttpContext.Response.Redirect("~/acessonegado.html");
+            //filterContext.Result = new HttpUnauthorizedResult();
+        }
     }
 }
