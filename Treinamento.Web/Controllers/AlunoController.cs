@@ -3,6 +3,7 @@ using System.Web.Mvc;
 using Treinamento.Domain.Interfaces.Negocio;
 using Treinamento.Web.Models;
 using System.Linq;
+using Treinamento.Domain.Excecoes;
 
 namespace Treinamento.Web.Controllers
 {
@@ -49,9 +50,18 @@ namespace Treinamento.Web.Controllers
 
                 return RedirectToAction("Index");
             }
+            catch (DocumentoInvalidoException ex)
+            {
+                ViewBag.Error = "Documento inválido";
+                return View();
+            }
             catch
             {
                 return View();
+            }
+            finally
+            {
+                ViewBag.Convenios = await _negocio.ListarConvenios();
             }
         }
 

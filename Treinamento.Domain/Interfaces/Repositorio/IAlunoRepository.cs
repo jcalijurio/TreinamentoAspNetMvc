@@ -8,5 +8,6 @@ namespace Treinamento.Domain.Interfaces.Repositorio
     public interface IAlunoRepository : ICrudRepository<AlunoDto>
     {
         Task<IEnumerable<ComboDto>> ListarConvenios();
+        bool ValidarDuplicidadeCpf(string documento);
     }
 }

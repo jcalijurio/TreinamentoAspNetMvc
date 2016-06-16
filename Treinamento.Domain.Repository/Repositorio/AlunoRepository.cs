@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
@@ -95,6 +96,11 @@ namespace Treinamento.Domain.Repository.Repositorio
                                      Sexo = a.Sexo
                                  }).FirstOrDefaultAsync();
             return retorno;
+        }
+
+        public bool ValidarDuplicidadeCpf(string documento)
+        {
+            return _contexto.Alunos.Any(a => a.Cpf == documento);
         }
     }
 }

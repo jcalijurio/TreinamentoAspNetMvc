@@ -5,8 +5,10 @@ using SimpleInjector.Integration.Web;
 using SimpleInjector.Integration.Web.Mvc;
 using System.Web.Mvc;
 using Treinamento.Domain.Classes.Negocio;
+using Treinamento.Domain.Classes.Servicos;
 using Treinamento.Domain.Interfaces.Negocio;
 using Treinamento.Domain.Interfaces.Repositorio;
+using Treinamento.Domain.Interfaces.Servicos;
 using Treinamento.Domain.Repository.Contexto;
 using Treinamento.Domain.Repository.Repositorio;
 
@@ -27,6 +29,8 @@ namespace Treinamento.Web
 
             container.Register<IAlunoRepository, AlunoRepository>(Lifestyle.Transient);
             container.Register<IAlunoNegocio, AlunoNegocio>(Lifestyle.Transient);
+
+            container.Register<IValidadorDocumento, ValidadorCpf>(Lifestyle.Transient);
 
             container.Register(() => { return new TreinamentoContexto("TreinamentoConnection"); }, Lifestyle.Scoped);
 

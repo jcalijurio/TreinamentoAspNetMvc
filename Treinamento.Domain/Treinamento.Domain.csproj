@@ -44,6 +44,7 @@
     <Compile Include="Classes\Negocio\Base\CrudNegocio.cs" />
     <Compile Include="Classes\Negocio\Base\VisualizacaoNegocio.cs" />
     <Compile Include="Classes\Negocio\CursoNegocio.cs" />
+    <Compile Include="Classes\Servicos\ValidadorCpf.cs" />
     <Compile Include="Dtos\AlunoDto.cs" />
     <Compile Include="Dtos\ComboDto.cs" />
     <Compile Include="Dtos\CursoDto.cs" />
@@ -54,6 +55,7 @@
     <Compile Include="Entidades\DebitoVencido.cs" />
     <Compile Include="Entidades\Matricula.cs" />
     <Compile Include="Entidades\Turma.cs" />
+    <Compile Include="Excecoes\DocumentoInvalidoException.cs" />
     <Compile Include="Interfaces\Negocio\Base\ICrudNegocio.cs" />
     <Compile Include="Interfaces\Negocio\Base\IVisualizacaoNegocio.cs" />
     <Compile Include="Interfaces\Negocio\IAlunoNegocio.cs" />
@@ -63,6 +65,7 @@
     <Compile Include="Interfaces\Repositorio\Base\IVisualizacaoRepository.cs" />
     <Compile Include="Interfaces\Repositorio\IAlunoRepository.cs" />
     <Compile Include="Interfaces\Repositorio\ICursoRepository.cs" />
+    <Compile Include="Interfaces\Servicos\IValidadorDocumento.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
