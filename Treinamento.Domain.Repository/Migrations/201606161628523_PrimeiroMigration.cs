@@ -1,8 +1,7 @@
-namespace Treinamento.Domain.Migrations
+namespace Treinamento.Domain.Repository.Migrations
 {
-    using System;
     using System.Data.Entity.Migrations;
-    
+
     public partial class PrimeiroMigration : DbMigration
     {
         public override void Up()
@@ -14,6 +13,7 @@ namespace Treinamento.Domain.Migrations
                         Id = c.Int(nullable: false, identity: true),
                         Nome = c.String(maxLength: 100),
                         Cpf = c.String(maxLength: 14),
+                        Sexo = c.Int(nullable: false),
                         DtNascimento = c.DateTime(nullable: false),
                         ConvenioId = c.Int(),
                     })

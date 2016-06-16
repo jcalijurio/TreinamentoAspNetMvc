@@ -2,9 +2,9 @@
 using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Diagnostics;
 using Treinamento.Domain.Entidades;
-using Treinamento.Domain.Mapping;
+using Treinamento.Domain.Repository.Mapping;
 
-namespace Treinamento.Domain.Contexto
+namespace Treinamento.Domain.Repository.Contexto
 {
     public class TreinamentoContexto : DbContext
     {

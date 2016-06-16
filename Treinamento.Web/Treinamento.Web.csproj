@@ -324,6 +324,10 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Treinamento.Domain.Repository\Treinamento.Domain.Repository.csproj">
+      <Project>{4a195b6f-2b17-4600-8f55-c882ac2e66b4}</Project>
+      <Name>Treinamento.Domain.Repository</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Treinamento.Domain\Treinamento.Domain.csproj">
       <Project>{4DD6F4A2-8205-45FF-8DB7-4AC8958D3388}</Project>
       <Name>Treinamento.Domain</Name>

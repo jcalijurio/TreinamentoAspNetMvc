@@ -1,7 +1,7 @@
 ﻿using System.Data.Entity.ModelConfiguration;
 using Treinamento.Domain.Entidades;
 
-namespace Treinamento.Domain.Mapping
+namespace Treinamento.Domain.Repository.Mapping
 {
     public class MatriculaMap : EntityTypeConfiguration<Matricula>
     {

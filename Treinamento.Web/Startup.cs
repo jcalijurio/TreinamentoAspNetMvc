@@ -5,10 +5,10 @@ using SimpleInjector.Integration.Web;
 using SimpleInjector.Integration.Web.Mvc;
 using System.Web.Mvc;
 using Treinamento.Domain.Classes.Negocio;
-using Treinamento.Domain.Classes.Repositorio;
-using Treinamento.Domain.Contexto;
 using Treinamento.Domain.Interfaces.Negocio;
 using Treinamento.Domain.Interfaces.Repositorio;
+using Treinamento.Domain.Repository.Contexto;
+using Treinamento.Domain.Repository.Repositorio;
 
 [assembly: OwinStartup(typeof(Treinamento.Web.Startup))]
 namespace Treinamento.Web

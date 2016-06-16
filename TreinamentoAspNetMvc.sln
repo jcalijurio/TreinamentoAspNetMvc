@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Treinamento.Domain", "Trein
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Treinamento.Web", "Treinamento.Web\Treinamento.Web.csproj", "{37017849-68B9-4479-8673-9CF6046AEE4C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Treinamento.Domain.Repository", "Treinamento.Domain.Repository\Treinamento.Domain.Repository.csproj", "{4A195B6F-2B17-4600-8F55-C882AC2E66B4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{37017849-68B9-4479-8673-9CF6046AEE4C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{37017849-68B9-4479-8673-9CF6046AEE4C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{37017849-68B9-4479-8673-9CF6046AEE4C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4A195B6F-2B17-4600-8F55-C882AC2E66B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4A195B6F-2B17-4600-8F55-C882AC2E66B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4A195B6F-2B17-4600-8F55-C882AC2E66B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4A195B6F-2B17-4600-8F55-C882AC2E66B4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

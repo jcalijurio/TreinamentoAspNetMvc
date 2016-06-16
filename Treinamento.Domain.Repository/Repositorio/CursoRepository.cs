@@ -2,12 +2,12 @@
 using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
-using Treinamento.Domain.Contexto;
 using Treinamento.Domain.Dtos;
 using Treinamento.Domain.Entidades;
 using Treinamento.Domain.Interfaces.Repositorio;
+using Treinamento.Domain.Repository.Contexto;
 
-namespace Treinamento.Domain.Classes.Repositorio
+namespace Treinamento.Domain.Repository.Repositorio
 {
     public class CursoRepository : ICursoRepository
     {

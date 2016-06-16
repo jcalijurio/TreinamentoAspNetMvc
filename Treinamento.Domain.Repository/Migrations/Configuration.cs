@@ -1,19 +1,16 @@
-namespace Treinamento.Domain.Migrations
+namespace Treinamento.Domain.Repository.Migrations
 {
     using Entidades;
-    using System;
-    using System.Data.Entity;
     using System.Data.Entity.Migrations;
-    using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<Treinamento.Domain.Contexto.TreinamentoContexto>
+    internal sealed class Configuration : DbMigrationsConfiguration<Treinamento.Domain.Repository.Contexto.TreinamentoContexto>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
         }
 
-        protected override void Seed(Treinamento.Domain.Contexto.TreinamentoContexto context)
+        protected override void Seed(Treinamento.Domain.Repository.Contexto.TreinamentoContexto context)
         {
             context.Cursos.AddOrUpdate(c => c.Nome,
                 new Curso { CargaHoraria = 20, LimiteAlunos = 20, Nome = "Informática Básica", Valor = 200 },
