@@ -19,6 +19,8 @@ namespace Treinamento.Web
     {
         public Task SendAsync(IdentityMessage message)
         {
+            return Task.FromResult(0);
+
             var sendGridMessage = new SendGrid.SendGridMessage
             {
                 From = new MailAddress("contato@treinamentomvc.com.br"),
@@ -49,7 +51,7 @@ namespace Treinamento.Web
         {
         }
 
-        public static ApplicationUserManager Create(IdentityFactoryOptions<ApplicationUserManager> options, IOwinContext context) 
+        public static ApplicationUserManager Create(IdentityFactoryOptions<ApplicationUserManager> options, IOwinContext context)
         {
             var manager = new ApplicationUserManager(new UserStore<ApplicationUser>(context.Get<ApplicationDbContext>()));
             // Configure validation logic for usernames
@@ -90,7 +92,7 @@ namespace Treinamento.Web
             var dataProtectionProvider = options.DataProtectionProvider;
             if (dataProtectionProvider != null)
             {
-                manager.UserTokenProvider = 
+                manager.UserTokenProvider =
                     new DataProtectorTokenProvider<ApplicationUser>(dataProtectionProvider.Create("SenhadoBiru"));
             }
             return manager;
@@ -113,6 +115,17 @@ namespace Treinamento.Web
         public static ApplicationSignInManager Create(IdentityFactoryOptions<ApplicationSignInManager> options, IOwinContext context)
         {
             return new ApplicationSignInManager(context.GetUserManager<ApplicationUserManager>(), context.Authentication);
+        }
+
+        public override Task SignInAsync(ApplicationUser user, bool isPersistent, bool rememberBrowser)
+        {
+            UserManager.UpdateSecurityStampAsync(user.Id).Wait();
+            return base.SignInAsync(user, isPersistent, rememberBrowser);
+        }
+
+        public override Task<SignInStatus> PasswordSignInAsync(string userName, string password, bool isPersistent, bool shouldLockout)
+        {
+            return base.PasswordSignInAsync(userName, password, isPersistent, shouldLockout);
         }
     }
 }
