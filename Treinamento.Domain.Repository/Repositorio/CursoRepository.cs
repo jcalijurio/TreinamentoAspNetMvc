@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
@@ -64,6 +65,18 @@ namespace Treinamento.Domain.Repository.Repositorio
                                  }).ToArrayAsync();
 
             return retorno;
+        }
+
+        public async Task<IEnumerable<ComboDto>> ListarTurmas(int cursoId)
+        {
+            var retorno = await (from t in _contexto.Turmas
+                                 where t.CursoId == cursoId
+                                 select new
+                                 {
+                                     Id = t.Id,
+                                     Valor = t.Numero
+                                 }).ToArrayAsync();
+            return retorno.Select(r => new ComboDto { Id = r.Id, Valor = r.Valor.ToString() }).ToArray();
         }
 
         public virtual async Task<CursoDto> ObterPorId(int id)

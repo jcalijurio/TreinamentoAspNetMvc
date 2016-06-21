@@ -1,0 +1,89 @@
+﻿@model MatriculaViewModel
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Matrículas de Alunos</h2>
+<div id="corpo_matricula">
+    <p>
+        <a href="#" data-bind="click: criar">Cadastrar</a>
+    </p>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Aluno)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Turma)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Curso)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody data-bind="foreach: $root.lista">
+            <tr>
+                <td data-bind="text: Aluno"></td>
+                <td data-bind="text: Turma"></td>
+                <td data-bind="text: Curso"></td>
+                <td>
+                    <a href="#" data-bind="click: editar">Editar</a>
+                    | 
+                    <a href="#" data-bind="click: excluir">Excluir</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="modal fade" id="modal_cadastro" tabindex="-1" role="dialog" data-bind="with: cadastro">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Matrícula Aluno</h4>
+                </div>
+                <div class="modal-body">
+                    <form action="#" method="post" name="form_matricula" id="form_matricula">
+                        <div class="form-horizontal">
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.AlunoId, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.DropDownListFor(model => model.AlunoId, Enumerable.Empty<SelectListItem>(), string.Empty, new { @class = "form-control", @data_bind = "value: AlunoId, options: $root.alunos, optionsText: 'Nome', optionsValue: 'Id', optionsCaption: ''" })
+                                    @Html.ValidationMessageFor(model => model.AlunoId, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.CursoId, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.DropDownListFor(model => model.CursoId, Enumerable.Empty<SelectListItem>(), string.Empty, new { @class = "form-control", @data_bind = "value: CursoId, options: $root.cursos, optionsText: 'Nome', optionsValue: 'Id', optionsCaption: ''" })
+                                    @Html.ValidationMessageFor(model => model.CursoId, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.TurmaId, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.DropDownListFor(model => model.TurmaId, Enumerable.Empty<SelectListItem>(), string.Empty, new { @class = "form-control", @data_bind = "value: TurmaId, options: $root.turmas, optionsText: 'Valor', optionsValue: 'Id', optionsCaption: '', valueAllowUnset: true, enable: CursoId()" })
+                                    @Html.ValidationMessageFor(model => model.TurmaId, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-primary" data-bind="click: salvar">Salvar</button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/matricula")
+}

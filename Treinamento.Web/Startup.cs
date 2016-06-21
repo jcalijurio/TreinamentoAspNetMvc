@@ -32,6 +32,9 @@ namespace Treinamento.Web
 
             container.Register<IValidadorDocumento, ValidadorCpf>(Lifestyle.Transient);
 
+            container.Register<IMatriculaNegocio, MatriculaNegocio>(Lifestyle.Transient);
+            container.Register<IMatriculaRepository, MatriculaRepository>(Lifestyle.Transient);
+
             container.Register(() => { return new TreinamentoContexto("TreinamentoConnection"); }, Lifestyle.Scoped);
 
             container.Verify();
